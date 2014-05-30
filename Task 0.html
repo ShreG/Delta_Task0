@@ -1,7 +1,41 @@
 <html>
-<head>Task 0 Delta </head>
+<head>
+<title>Task 0 Delta </title>
+<div id="circle"</div>
+<style>
+#circle
+{
+	position:absolute;
+	height:20px;
+	width: 20px;
+	radius: 10px;
+	top: 100px;
+	left: 240px;
+	background: black;
+	border-radius=100%;
+}
+</style>
+
+<script>
+function setValues(){
+var circle = document.getElementByID('circle');
+var x_circle = circle.offsetLeft;
+var y_circle = circle.offsetTop;
+var speed=0.1;
+var rad=9;
+angle=0;
+}
+function locus()
+{
+ x_circle+=rad*Math.cos(angle);
+y_circle+=rad*Math.sin(angle);
+angle+=speed;
+}
+
+</script>
+</head>
 
 <body>
-<h1><center><Font size ="6" face = "Times New Roman"> For Task 0, the idea is to make a HTML element go in a circle.</center></h1>
+
 </body>
 </html>
