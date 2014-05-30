@@ -8,8 +8,8 @@
 	position:absolute;
       	top: 0px;
 	left: 0px;
-	height:40px;
-	width: 40px;
+	height:30px;
+	width: 30px;
 	background: black;
 	
 }
@@ -23,34 +23,34 @@ window.onload=function setValues()
 var round = document.getElementById('circle');
 var x= circle.offsetLeft;
 var y= circle.offsetTop;
-var speed=20;
+var speed=10;
 var rad=7;
 var angle=0;
-var x_lim = 20*speed, y_lim = 20*speed, right=1, left=1, down=1, up=1,half=0;
+var x_lim = 30*speed, y_lim = 20*speed, right=1, down=1, half=0; <!--arbitrary values have been set for the dimensions of the rectangle-->
 function trajectory()
 {
 if(y==0)
-half=0;
-if(x<x_lim && y<y_lim && !half)
+half=0; <!--half is used to signify completion of traversal of two sides of the rectangle-->
+if(x<x_lim && y<y_lim && !half) <!-- for the top horizontal line of the rectangle, where half is 0-->
 
-right=1,left=0,up=0, down=0,  half=0;
+right=1, down=0,  half=0; 
 
 else
-if(x==x_lim && y<y_lim)
+if(x==x_lim && y<y_lim) <!--for the right vertical line, half is still 0-->
 {
-right = 0,left=0,up=0, down = 1, half=0;
+right = 0,down = 1, half=0;
 }
 else
-if(y==y_lim && x>0  )
+if(y==y_lim && x>0  ) <!--for the bottom horizontal line where half is made 1-->
 {
-right =-1, left=0, up=0, down=0; half=1;
+right =-1,  down=0; half=1;
 }
 else
-if(x==0 && y>=0 && half)
-right = 0, left=0,up =1, down = 0;
+if(x==0 && y>=0 && half) <!--for the left vertical line where half is still 1-->
+right = 0, down = -1;
 
-x= x+(right*speed)- (left*speed);
-y=y+(down*speed)-(up*speed);
+x= x+(right*speed); <!--The sign of right takes care of moving x to the left or to the right-->
+y=y+(down*speed); <!--The sign of down takes care of moving y up or down-->
 round.style.top=y;
 round.style.left=x;
 window.requestAnimationFrame(trajectory);
