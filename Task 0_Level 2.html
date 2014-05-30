@@ -1,17 +1,17 @@
 <html>
 <head>
-<title>Task 0 Delta </title>
+<title>Delta Task 0 Level 2 </title>
 <div id="circle"</div>
 <style>
 #circle
 {
 	position:absolute;
-        top: 0px;
+      	top: 0px;
 	left: 0px;
 	height:40px;
 	width: 40px;
 	background: black;
-	border-radius:60%;
+	
 }
 </style>
 </head>
@@ -23,41 +23,37 @@ window.onload=function setValues()
 var round = document.getElementById('circle');
 var x= circle.offsetLeft;
 var y= circle.offsetTop;
-var speed=1;
+var speed=20;
 var rad=7;
 var angle=0;
-var x_lim = 200, y_lim = 200, right=1, down=1;
+var x_lim = 20*speed, y_lim = 20*speed, right=1, left=1, down=1, up=1,half=0;
 function trajectory()
 {
-if(x<x_lim && y<y_lim)
-{
-right=1, down=0;
-x+=speed;
-round.style.left=x;
-window.requestAnimationFrame(trajectory);
-}
-if(x>=x_lim && y<y_lim)
-{
-right = 0, down = 1;
-y+=speed;
-round.style.top=y;
-window.requestAnimationFrame(trajectory);
-}
-if(x>=x_lim && y>=y_lim)
-{
-right =0, down=0;
-x-=speed;
-round.style.left=x;
-window.requestAnimationFrame(trajectory);
-}
-if(x<x_lim && y>=y_lim)
-{
-right = 0, down = 0;
-y-=speed;
-round.style.top=y;
-window.requestAnimationFrame(trajectory);
-}
+if(y==0)
+half=0;
+if(x<x_lim && y<y_lim && !half)
 
+right=1,left=0,up=0, down=0,  half=0;
+
+else
+if(x==x_lim && y<y_lim)
+{
+right = 0,left=0,up=0, down = 1, half=0;
+}
+else
+if(y==y_lim && x>0  )
+{
+right =-1, left=0, up=0, down=0; half=1;
+}
+else
+if(x==0 && y>=0 && half)
+right = 0, left=0,up =1, down = 0;
+
+x= x+(right*speed)- (left*speed);
+y=y+(down*speed)-(up*speed);
+round.style.top=y;
+round.style.left=x;
+window.requestAnimationFrame(trajectory);
 };
 trajectory();
 }
