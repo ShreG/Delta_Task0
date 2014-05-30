@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>Task 0 Delta </title>
+<div id="circle"</div>
+<style>
+#circle
+{
+	position:absolute;
+        top: 0px;
+	left: 0px;
+	height:40px;
+	width: 40px;
+	background: black;
+	border-radius:60%;
+}
+</style>
+</head>
+
+<body>
+<script>
+window.onload=function setValues()
+{
+var round = document.getElementById('circle');
+var x= circle.offsetLeft;
+var y= circle.offsetTop;
+var speed=1;
+var rad=7;
+var angle=0;
+var x_lim = 200, y_lim = 200, right=1, down=1;
+function trajectory()
+{
+if(x<x_lim && y<y_lim)
+{
+right=1, down=0;
+x+=speed;
+round.style.left=x;
+window.requestAnimationFrame(trajectory);
+}
+if(x>=x_lim && y<y_lim)
+{
+right = 0, down = 1;
+y+=speed;
+round.style.top=y;
+window.requestAnimationFrame(trajectory);
+}
+if(x>=x_lim && y>=y_lim)
+{
+right =0, down=0;
+x-=speed;
+round.style.left=x;
+window.requestAnimationFrame(trajectory);
+}
+if(x<x_lim && y>=y_lim)
+{
+right = 0, down = 0;
+y-=speed;
+round.style.top=y;
+window.requestAnimationFrame(trajectory);
+}
+
+};
+trajectory();
+}
+</script>
+</head>
+
+</body>
+</html>
