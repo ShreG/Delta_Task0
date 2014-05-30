@@ -1,9 +1,9 @@
 <html>
 <head>
 <title>Delta Task 0 Level 2 </title>
-<div id="circle"</div>
+<div id="rectangle"</div>
 <style>
-#circle
+#rectangle
 {
 	position:absolute;
       	top: 0px;
@@ -20,12 +20,11 @@
 <script>
 window.onload=function setValues()
 {
-var round = document.getElementById('circle');
-var x= circle.offsetLeft;
-var y= circle.offsetTop;
+var rect = document.getElementById('rectangle');
+var x= rectangle.offsetLeft;
+var y= rectangle.offsetTop;
 var speed=10;
 var rad=7;
-var angle=0;
 var x_lim = 30*speed, y_lim = 20*speed, right=1, down=1, half=0; <!--arbitrary values have been set for the dimensions of the rectangle-->
 function trajectory()
 {
@@ -51,8 +50,8 @@ right = 0, down = -1;
 
 x= x+(right*speed); <!--The sign of right takes care of moving x to the left or to the right-->
 y=y+(down*speed); <!--The sign of down takes care of moving y up or down-->
-round.style.top=y;
-round.style.left=x;
+rect.style.top=y;
+rect.style.left=x;
 window.requestAnimationFrame(trajectory);
 };
 trajectory();
