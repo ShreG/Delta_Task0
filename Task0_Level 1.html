@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Delta Task 0 Level 1 </title>
+<div id="circle"</div>
+<style>
+#circle
+{
+	position:absolute;
+        	top: 0px;
+	left: 0px;
+	height:40px;
+	width: 40px;
+	background: black;
+	border-radius:80%;
+}
+</style>
+</head>
+
+<body>
+<script>
+window.onload=function setValues() <!--this function helps define the circle that is to move along a particular trajectory-->
+{
+var round = document.getElementById('circle');
+var x= circle.offsetLeft;
+var y= circle.offsetTop;
+var speed=0.2;
+var rad=7;
+var angle=0;
+function trajectory() <!--this function decides the trajectory for the circle, in this case it is a circle-->
+{
+x=100+rad*Math.cos(angle);  <!--100 is the x-coordinate of the center of the circle about which the element is rotating, follows from x = cx + r*cos(angle) -->
+round.style.left=x; <!--changing the value of the x-coordinate of the HTML element-->
+y=100+rad*Math.sin(angle);   <!--100 is the y-coordinate of the center of the circle about which the element is rotating, follows from y = cy + r*sin(angle) -->
+round.style.top=y; <!--changing the value of the y-coordinate of the HTML element-->
+angle+=speed; <!-- As the angle keeps changing, the position of the HTML element keeps changing-->
+window.requestAnimationFrame(trajectory); <!-- The function has to call itself in order to keep performing the above task so that it gives the appearance of a circle rotating-->
+};
+trajectory();
+}
+</script>
+</head>
+
+</body>
+</html>
