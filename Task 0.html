@@ -19,16 +19,16 @@
 
 <body>
 <script>
-function setValues(){
-var circle = document.getElementByID('circle');
+window.onload=function(){
+var circle = document.getElementById('circle');
 var x_circle = circle.offsetLeft;
 var y_circle = circle.offsetTop;
 var speed=0.1;
 var rad=9;
 angle=0;
+var x_lim=200, y_lim=100;
 function locus()
 {
-var x_lim=200, y_lim=100;
 if(x+circle<=x_limit)
 {	
 	 x_circle+=speed;
@@ -41,7 +41,8 @@ y_circle+=speed;
 else
 y_circle-=speed;
 circle.style.top=y+'px';
-}
+window.requestAnimationFrame(locus);
+};
 locus();
 }
 </script>
