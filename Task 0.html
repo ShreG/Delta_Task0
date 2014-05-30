@@ -12,10 +12,12 @@
 	top: 100px;
 	left: 240px;
 	background: black;
-	border-radius=100%;
+	border-radius:100%;
 }
 </style>
+</head>
 
+<body>
 <script>
 function setValues(){
 var circle = document.getElementByID('circle');
@@ -24,18 +26,26 @@ var y_circle = circle.offsetTop;
 var speed=0.1;
 var rad=9;
 angle=0;
-}
 function locus()
 {
- x_circle+=rad*Math.cos(angle);
-y_circle+=rad*Math.sin(angle);
-angle+=speed;
+var x_lim=200, y_lim=100;
+if(x+circle<=x_limit)
+{	
+	 x_circle+=speed;
 }
-
+else
+x_circle-= speed;
+circle.style.left=x+'px';
+if(y_circle<=y_lim)
+y_circle+=speed;
+else
+y_circle-=speed;
+circle.style.top=y+'px';
+}
+locus();
+}
 </script>
 </head>
-
-<body>
 
 </body>
 </html>
