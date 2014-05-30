@@ -1,52 +1,43 @@
+<!doctype html>
 <html>
 <head>
-<title>Task 0 Delta </title>
-<div id="circle"</div>
-<style>
-#circle
+<title> TASK ZERO LEVEL ONE </title>
+<style type='text/css'>
+#circle 
 {
-	position:absolute;
-	height:20px;
-	width: 20px;
-	radius: 10px;
-	top: 100px;
-	left: 240px;
-	background: black;
-	border-radius:100%;
-}
+  position: absolute;
+  width:30px;
+  height:30px;
+  top:300px;
+  left:250px;
+  background:black;
+  border-radius:80%;
+ }
 </style>
-</head>
-
-<body>
-<script>
+<script type='text/javascript'>
+alert("Hello");
 window.onload=function(){
 var circle = document.getElementById('circle');
-var x_circle = circle.offsetLeft;
-var y_circle = circle.offsetTop;
-var speed=0.1;
-var rad=9;
-angle=0;
-var x_lim=200, y_lim=100;
-function locus()
-{
-if(x+circle<=x_limit)
-{	
-	 x_circle+=speed;
-}
-else
-x_circle-= speed;
-circle.style.left=x+'px';
-if(y_circle<=y_lim)
-y_circle+=speed;
-else
-y_circle-=speed;
-circle.style.top=y+'px';
-window.requestAnimationFrame(locus);
-};
-locus();
+var x = circle.offsetLeft;
+var y = circle.offsetTop;
+var rad =8
+var spd = 0.2;
+var angle = 0;
+<!--function locus()
+ { 
+  
+  x += rad*Math.cos(angle);
+  y+= rad*Math.sin(angle);
+  circle.style.left = x+'px';
+  circle.style.top = y+'px';
+  angle -= spd; 
+  window.requestAnimationFrame(locus);  
+ };
+ locus();  -->
 }
 </script>
 </head>
-
+<body>
+ <div id='circle'></div>
 </body>
 </html>
